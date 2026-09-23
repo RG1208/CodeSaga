@@ -1,0 +1,27 @@
+{
+  "target": "tests/fixtures/retrieval/support_desk",
+  "note": "Ground truth for the deterministic fixture repository. Two groups: literal queries that share words with the code, and paraphrases that do not (those are what dense retrieval is for).",
+  "queries": [
+    {"query": "hash a user password securely", "relevant_files": ["app/auth/passwords.py"]},
+    {"query": "verify a json web token signature", "relevant_files": ["app/auth/tokens.py"]},
+    {"query": "charge a credit card", "relevant_files": ["app/billing/payments.py"]},
+    {"query": "refund a customer payment", "relevant_files": ["app/billing/refunds.py"]},
+    {"query": "send an email notification", "relevant_files": ["app/notifications/email.py"]},
+    {"query": "send a text message to a phone number", "relevant_files": ["app/notifications/sms.py"]},
+    {"query": "limit how many requests a client can make", "relevant_files": ["app/middleware/rate_limit.py"]},
+    {"query": "evict least recently used cache entries", "relevant_files": ["app/storage/cache.py"]},
+    {"query": "database connection pool size", "relevant_files": ["app/storage/database.py"]},
+    {"query": "assign a ticket to an agent", "relevant_files": ["app/tickets/service.py"]},
+    {"query": "escalate an overdue ticket to a manager", "relevant_files": ["app/tickets/escalation.py"]},
+    {"query": "login form component", "relevant_files": ["web/src/components/LoginForm.tsx"]},
+    {"query": "how does the frontend call the api", "relevant_files": ["web/src/api/client.ts"]},
+    {"query": "what is the architecture of this service", "relevant_files": ["docs/architecture.md", "README.md"]},
+
+    {"query": "where do we turn a plaintext secret into something safe to store", "relevant_files": ["app/auth/passwords.py"], "note": "paraphrase"},
+    {"query": "how do we know a signed session string has not been tampered with", "relevant_files": ["app/auth/tokens.py"], "note": "paraphrase"},
+    {"query": "give the money back to the buyer", "relevant_files": ["app/billing/refunds.py"], "note": "paraphrase"},
+    {"query": "stop a noisy client from hammering the service", "relevant_files": ["app/middleware/rate_limit.py"], "note": "paraphrase"},
+    {"query": "throw away the entry nobody has touched for the longest time", "relevant_files": ["app/storage/cache.py"], "note": "paraphrase"},
+    {"query": "move a late ticket up to someone more senior", "relevant_files": ["app/tickets/escalation.py"], "note": "paraphrase"}
+  ]
+}

@@ -1,0 +1,30 @@
+# Tool configuration only. Dependencies live in requirements*.txt so every
+# machine installs exactly the same pinned versions.
+[project]
+name = "codesage-backend"
+version = "0.1.0"
+description = "CodeSage API: AI-powered codebase intelligence and review platform"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+filterwarnings = [
+    # Raised inside Starlette's TestClient itself, not by CodeSage code.
+    "ignore:The anyio.abc.BlockingPortal alias is deprecated:DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+# tests/fixtures holds sample projects that are parsed, not run or linted.
+extend-exclude = ["alembic/versions", "tests/fixtures"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF"]
+ignore = ["B008"]  # FastAPI's Depends()/Query() in argument defaults is idiomatic.
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+# The local alembic/ migrations folder would otherwise shadow the alembic package.
+known-third-party = ["alembic"]

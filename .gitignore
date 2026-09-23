@@ -1,0 +1,33 @@
+# Environment (copy .env.example instead)
+.env
+.env.*
+!.env.example
+
+# Cloned repositories (REPOSITORY_STORAGE_DIR default)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.db
+*.sqlite3
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

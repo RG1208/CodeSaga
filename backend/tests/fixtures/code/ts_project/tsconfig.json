@@ -1,0 +1,7 @@
+{
+  // Path aliases, as in a Next.js project.
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] },
+  },
+}
